@@ -1,0 +1,9 @@
+NAME="$1"
+ls -1tr *.jpg > files.txt
+
+mencoder -ovc x264 -oac mp3lame -mf w=1400:h=900:fps=20:type=jpg 'mf://@files.txt' -o timelapse.avi
+
+mkdir $NAME
+mv files.txt $NAME
+mv *.jpg $NAME
+mv timelapse.avi $NAME
